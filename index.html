@@ -600,38 +600,6 @@
       gap: 8px;
     }
 
-    .theme-button {
-      width: 38px;
-      height: 38px;
-
-      display: grid;
-
-      place-items: center;
-
-      border:
-        1px solid
-        var(--border);
-
-      border-radius: 10px;
-
-      background:
-        rgba(255, 255, 255, 0.035);
-
-      color: var(--text);
-
-      transition:
-        transform 0.2s ease,
-        background 0.2s ease;
-    }
-
-    .theme-button:hover {
-      transform:
-        translateY(-2px)
-        rotate(8deg);
-
-      background:
-        rgba(124, 92, 255, 0.1);
-    }
 
     .menu-button {
       display: none;
@@ -2682,16 +2650,7 @@
 
       <div class="nav-actions">
 
-        <button
-          class="theme-button"
-          id="themeButton"
-          type="button"
-          aria-label="Toggle theme"
-          title="Toggle theme"
-        >
-          ☀️
-        </button>
-
+      
         <button
           class="menu-button"
           id="menuButton"
@@ -4380,10 +4339,7 @@
         "menuButton"
       );
 
-    const themeButton =
-      document.getElementById(
-        "themeButton"
-      );
+
 
     const scrollProgress =
       document.getElementById(
@@ -4577,74 +4533,6 @@
     );
 
 
-    /* =========================================================
-       THEME TOGGLE
-    ========================================================= */
-
-    const savedTheme =
-      localStorage.getItem(
-        "sai-theme"
-      );
-
-
-    if (savedTheme === "light") {
-
-      body.classList.add(
-        "light-mode"
-      );
-
-    }
-
-
-    function updateThemeButton() {
-
-      const isLight =
-        body.classList.contains(
-          "light-mode"
-        );
-
-
-      themeButton.textContent =
-        isLight
-          ? "🌙"
-          : "☀️";
-
-
-      themeButton.setAttribute(
-        "aria-label",
-        isLight
-          ? "Switch to dark mode"
-          : "Switch to light mode"
-      );
-
-    }
-
-
-    themeButton.addEventListener(
-      "click",
-      () => {
-
-        const isLight =
-          body.classList.toggle(
-            "light-mode"
-          );
-
-
-        localStorage.setItem(
-          "sai-theme",
-          isLight
-            ? "light"
-            : "dark"
-        );
-
-
-        updateThemeButton();
-
-      }
-    );
-
-
-    updateThemeButton();
 
 
     /* =========================================================
